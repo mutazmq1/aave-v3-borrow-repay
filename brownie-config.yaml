@@ -1,0 +1,59 @@
+compiler:
+  solc:
+    remappings:
+    - '@chainlink=smartcontractkit/chainlink-brownie-contracts@0.4.1'
+    - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.6.0'
+    - '@aave=aave/aave-v3-core@1.16.1'
+dependencies:
+- smartcontractkit/chainlink-brownie-contracts@0.4.1
+- OpenZeppelin/openzeppelin-contracts@4.6.0
+- aave/aave-v3-core@1.16.1
+dotenv: .env
+networks:
+  default: development
+  development:
+    base_fee: 100000000000000000
+    callback_gas_imit: 100000
+    fund_amount: 5000000000000000000
+    gas_price_link: 1.0e-09
+    keyhash: '0xd89b2bf150e3b9e13446986e571fb9cab24b13cea0a43ea20a6049a85cc807cc'
+    verify: false
+    vrf_subscription_id: '0x01be23585060835e02b77ef475b0cc51aa1e0709'
+  kovan:
+    # weth kovan contract etherscan at https://kovan.etherscan.io/token/0xd0a1e359811322d97991e03f863a0c30c2cf029c
+    weth_token: '0xd0A1E359811322d97991E03f863a0C30C2cF029C'
+    aave_pool_addressess_provider: '0x651b8A8cA545b251a8f49B57D5838Da0a8DFbEF9'
+    dai_eth_price_feed: '0x22B58f1EbEDfCA50feF632bD73368b2FdA96D541'
+    
+  mainnet-fork:
+    eth_usd_price_feed: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+    vrf_subscription_id: '0x01be23585060835e02b77ef475b0cc51aa1e0709'
+    # weth token etherscan at https://etherscan.io/token/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
+    weth_token: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
+    aave_pool_addressess_provider: '0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb'
+    dai_eth_price_feed: '0x773616E4d11A78F511299002da57A0a94577F1f4'
+    dai_token: '0x6B175474E89094C44Da98b954EedeAC495271d0F'
+    publish_source: False
+    verify: False
+  arbitrum-fork:
+    # weth token arbitrum at https://arbiscan.io/token/0x82af49447d8a07e3bd95bd0d56f35241523fbab1
+    weth_token: '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1'
+    aave_pool_addressess_provider: '0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb'
+    dai_usd_price_feed: '0xc5C8E77B397E531B8EC06BFb0048328B30E9eCfB'
+    eth_usd_price_feed: '0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612'
+    dai_token: '0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1'
+
+
+  rinkeby:
+    base_fee: 100000000000000000
+    callback_gas_imit: 100000
+    eth_usd_price_feed: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'
+    gas_price_link: 1.0e-09
+    keyhash: '0xd89b2bf150e3b9e13446986e571fb9cab24b13cea0a43ea20a6049a85cc807cc'
+    link_token: '0x01BE23585060835E02B77ef475b0Cc51aA1e0709'
+    subscription_id: 7006
+    verify: true
+    vrf_coordinator: '0x6168499c0cFfCaCD319c818142124B7A15E857ab'
+    vrf_subscription_id: 7006
+wallets:
+  from_key: ${PRIVATE_KEY}
